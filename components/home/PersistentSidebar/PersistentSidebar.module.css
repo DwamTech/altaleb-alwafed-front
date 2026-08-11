@@ -5,12 +5,29 @@
 .sticky header h2 { margin: 3px 0 5px; font-size: clamp(20px,2vw,27px); }
 .sticky header p { margin: 0; color: rgba(255,255,255,.48); font-size: 9px; line-height: 1.7; }
 .sticky nav { display: grid; gap: 9px; margin-top: 18px; }
-.sticky nav a { min-height: 58px; padding: 10px 12px; display: grid; grid-template-columns: 27px minmax(0,1fr) 18px; gap: 9px; align-items: center; color: rgba(255,255,255,.82); border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.045); transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
-.sticky nav a > span { color: var(--green); font-size: 9px; font-weight: 850; }
-.sticky nav a strong { font-size: 10px; line-height: 1.55; }
-.sticky nav a b { color: var(--green); font-size: 16px; }
-.sticky nav a:hover { color: white; background: rgba(255,255,255,.1); border-color: rgba(149,209,18,.45); transform: translateX(-4px); }
+.navItem { min-height: 58px; padding: 10px 12px; display: grid; grid-template-columns: 27px minmax(0,1fr) 18px; gap: 9px; align-items: center; color: rgba(255,255,255,.82); border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.045); transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+.navItem > span { color: var(--green); font-size: 9px; font-weight: 850; }
+.navItem strong { font-size: 10px; line-height: 1.55; }
+.navItem b { color: var(--green); font-size: 16px; }
+.navItem:hover { color: white; background: rgba(255,255,255,.1); border-color: rgba(149,209,18,.45); transform: translateX(-4px); }
+.mainMenuGroup { min-width: 0; }
+.mainMenuGroup > summary { cursor: pointer; list-style: none; }
+.mainMenuGroup > summary::-webkit-details-marker { display: none; }
+.mainMenuGroup > summary b { transition: transform .25s ease; }
+.mainMenuGroup[open] > summary b { transform: rotate(45deg); }
+.serviceGroup { min-width: 0; }
+.serviceGroup > summary { cursor: pointer; list-style: none; }
+.serviceGroup > summary::-webkit-details-marker { display: none; }
+.serviceGroup > summary b { transition: transform .25s ease; }
+.serviceGroup[open] > summary b { transform: rotate(45deg); }
+.serviceGroup.activeGroup > summary,.mainMenuGroup.activeGroup > summary { color: white; border-color: rgba(149,209,18,.58); background: rgba(149,209,18,.1); }
+.submenu { margin: 6px 9px 3px; padding: 6px; display: grid; gap: 3px; border-inline-start: 1px solid rgba(149,209,18,.28); background: rgba(0,0,0,.08); }
+.submenu a { min-height: 36px; padding: 7px 8px; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: rgba(255,255,255,.72); font-size: 10px; font-weight: 700; line-height: 1.55; transition: color .2s ease, background .2s ease, padding .2s ease; }
+.submenu a b { flex: 0 0 auto; color: var(--green); font-size: 13px; }
+.submenu a:hover { padding-inline-start: 12px; color: white; background: rgba(255,255,255,.07); }
+.submenu a.active { padding-inline-start: 12px; color: var(--teal); background: var(--green); box-shadow: 0 7px 18px rgba(0,0,0,.12); }
+.submenu a.active b { color: var(--teal); }
 .help { margin-top: 24px; padding: 18px; display: flex; flex-direction: column; color: var(--teal); background: var(--green); }
 .help span { font-size: 8px; font-weight: 700; opacity: .7; }.help strong { margin-top: 2px; font-size: 14px; }.help a { margin-top: 10px; font-size: 9px; font-weight: 850; text-decoration: underline; text-underline-offset: 3px; }
-@media (max-width:1050px) { .rail { order: 2; } .sticky { position: static; } .sticky nav { grid-template-columns: repeat(2,minmax(0,1fr)); } .help { max-width: 360px; } }
-@media (max-width:560px) { .sticky { padding: 18px; } .sticky nav { grid-template-columns: 1fr; } }
+@media (max-width:1050px) { .rail { order: 2; } .sticky { position: static; } .sticky nav { grid-template-columns: repeat(2,minmax(0,1fr)); }.mainMenuGroup,.serviceGroup { grid-column: 1 / -1; }.submenu { grid-template-columns: repeat(2,minmax(0,1fr)); } .help { max-width: 360px; } }
+@media (max-width:560px) { .sticky { padding: 18px; } .sticky nav,.submenu { grid-template-columns: 1fr; } }

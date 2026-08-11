@@ -1,17 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
-import { HOME_TABS, type HomeTabId } from "@/components/home/homeTabs";
-import { useHomeTabs } from "@/components/home/HomeTabsContext";
+import { HOME_TABS } from "@/components/home/homeTabs";
 import styles from "./Header.module.css";
 
 function BrandLogo() {
   return (
-    <a className={styles.logo} href="#home" aria-label="جمعية أصدقاء الطالب الوافد - الرئيسية">
+    <Link className={styles.logo} href="/" aria-label="جمعية أصدقاء الطالب الوافد - الرئيسية">
       <Image className={styles.badgeImage} src="/bage.png" alt="" width={173} height={173} priority aria-hidden="true" />
       <Image className={styles.wordmarkImage} src="/logo12.png" alt="جمعية أصدقاء الطالب الوافد" width={435} height={90} priority />
-    </a>
+    </Link>
   );
 }
 
@@ -30,20 +31,17 @@ const socialLinks = [
 ];
 
 export function Header() {
-  const { activeTab, setActiveTab } = useHomeTabs();
+  const pathname = usePathname();
 
-  const selectTab = (tab: HomeTabId, closeMobileMenu = false) => {
-    setActiveTab(tab);
-    if (closeMobileMenu) document.querySelector(`.${styles.mobileMenu}`)?.removeAttribute("open");
-    window.setTimeout(() => document.getElementById("home-content")?.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
-  };
+  const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const closeMobileMenu = () => document.querySelector(`.${styles.mobileMenu}`)?.removeAttribute("open");
 
   return (
-    <>
+    <div className={styles.headerStack}>
       <div className={styles.topBar}>
         <Container className={styles.topBarInner}>
           <nav className={styles.quickLinks} aria-label="روابط سريعة">
-            <a href="#home">الرئيسية</a><a href="#about">من نحن</a><a href="#contact">اتصل بنا</a>
+            <Link href="/">الرئيسية</Link><a href="/#about">من نحن</a><Link href="/contact">اتصل بنا</Link>
           </nav>
           <div className={styles.socialLinks} aria-label="حسابات التواصل الاجتماعي">
             {socialLinks.map((item) => <a href={item.href} key={item.label} target="_blank" rel="noreferrer" aria-label={item.label} title={item.label}><SocialIcon type={item.type} /></a>)}
@@ -55,18 +53,18 @@ export function Header() {
         <Container className={styles.navWrap}>
           <BrandLogo />
           <nav className={styles.desktopNav} aria-label="أقسام الموقع">
-            {HOME_TABS.map((item) => <button type="button" className={activeTab === item.id ? styles.active : undefined} onClick={() => selectTab(item.id)} key={item.id}>{item.label}</button>)}
+            {HOME_TABS.map((item) => <Link className={isActive(item.href) ? styles.active : undefined} href={item.href} key={item.id}>{item.label}</Link>)}
           </nav>
-          <a className={`${styles.donateButton} ${styles.desktopDonate}`} href="#contact">تبرع الآن</a>
+          <Link className={`${styles.donateButton} ${styles.desktopDonate}`} href="/donate">تبرع الآن</Link>
           <details className={styles.mobileMenu}>
             <summary aria-label="فتح القائمة"><span /><span /><span /></summary>
             <nav>
-              {HOME_TABS.map((item) => <button type="button" className={activeTab === item.id ? styles.active : undefined} onClick={() => selectTab(item.id, true)} key={item.id}>{item.label}</button>)}
-              <a className={styles.donateButton} href="#contact">تبرع الآن</a>
+              {HOME_TABS.map((item) => <Link className={isActive(item.href) ? styles.active : undefined} href={item.href} onClick={closeMobileMenu} key={item.id}>{item.label}</Link>)}
+              <Link className={styles.donateButton} href="/donate" onClick={closeMobileMenu}>تبرع الآن</Link>
             </nav>
           </details>
         </Container>
       </header>
-    </>
+    </div>
   );
 }

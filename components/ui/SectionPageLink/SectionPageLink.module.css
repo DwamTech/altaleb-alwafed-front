@@ -1,0 +1,4 @@
+.link { width: fit-content; min-height: 40px; margin-top: 18px; padding: 0 15px; display: inline-flex; align-items: center; gap: 9px; color: var(--teal); background: var(--green); border: 1px solid var(--green); font-size: 10px; font-weight: 850; white-space: nowrap; box-shadow: 0 9px 22px rgba(5,56,96,.1); transition: color .2s ease, background .2s ease, transform .2s ease; }
+.link span { font-size: 16px; transition: transform .2s ease; }
+.link:hover { color: white; background: var(--teal); transform: translateY(-2px); }
+.link:hover span { transform: translateX(-3px); }

@@ -1,3 +1,4 @@
+.headerStack {  z-index: 100; top: 0; width: 100%; box-shadow: 0 8px 24px rgba(5,56,96,.08); }
 .topBar { background: var(--teal); color: rgba(255,255,255,.78); font-size: 12px; }
 .topBarInner { min-height: 38px; display: flex; align-items: center; justify-content: space-between; }
 .quickLinks { display: flex; align-items: center; gap: 22px; }
@@ -15,9 +16,9 @@
 .badgeImage { width: 50px; height: 50px; object-fit: contain; }
 .wordmarkImage { width: 178px; height: auto; object-fit: contain; }
 .desktopNav { min-width: 0; min-height: 88px; display: flex; align-items: center; justify-content: center; gap: clamp(2px, .45vw, 8px); }
-.desktopNav button { height: 42px; padding: 0 9px; border: 0; border-radius: 4px; color: #4f5d68; background: transparent; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; transition: color .2s ease, background .2s ease; }
-.desktopNav button:hover, .desktopNav button.active { color: var(--teal); background: var(--cream); }
-.desktopNav button.active { box-shadow: inset 0 -3px 0 var(--green); }
+.desktopNav a { height: 42px; padding: 0 9px; display: inline-flex; align-items: center; border-radius: 4px; color: #4f5d68; background: transparent; font-size: 13px; font-weight: 700; white-space: nowrap; transition: color .2s ease, background .2s ease; }
+.desktopNav a:hover, .desktopNav a.active { color: var(--teal); background: var(--cream); }
+.desktopNav a.active { box-shadow: inset 0 -3px 0 var(--green); }
 .donateButton { min-width: 88px; height: 42px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; color: white; background: var(--teal); font-size: 12px; font-weight: 800; white-space: nowrap; box-shadow: 0 9px 22px rgba(5,56,96,.15); transition: transform .2s ease, background .2s ease, color .2s ease; }
 .donateButton:hover { color: var(--teal); background: var(--green); transform: translateY(-2px); }
 .desktopDonate { justify-self: end; }
@@ -26,8 +27,8 @@
 .mobileMenu summary::-webkit-details-marker { display: none; }
 .mobileMenu summary span { display: block; height: 2px; background: var(--teal); }
 .mobileMenu nav { position: absolute; top: 53px; left: 0; z-index: 5; width: min(285px, calc(100vw - 28px)); padding: 10px; display: grid; gap: 3px; background: white; border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 18px 45px rgba(5,56,96,.16); }
-.mobileMenu nav button { width: 100%; padding: 11px 12px; border: 0; border-radius: 4px; color: var(--teal); background: transparent; text-align: right; font-size: 14px; font-weight: 700; cursor: pointer; }
-.mobileMenu nav button:hover, .mobileMenu nav button.active { background: var(--cream); }
+.mobileMenu nav > a:not(.donateButton) { width: 100%; padding: 11px 12px; border-radius: 4px; color: var(--teal); background: transparent; text-align: right; font-size: 14px; font-weight: 700; }
+.mobileMenu nav > a:not(.donateButton):hover, .mobileMenu nav > a.active:not(.donateButton) { background: var(--cream); }
 .mobileMenu .donateButton { width: 100%; margin-top: 5px; }
 
 @media (max-width: 1150px) {
@@ -35,7 +36,7 @@
   .logo { min-width: 195px; gap: 5px; }
   .badgeImage { width: 44px; height: 44px; }
   .wordmarkImage { width: 145px; }
-  .desktopNav button { padding-inline: 6px; font-size: 11.5px; }
+  .desktopNav a { padding-inline: 6px; font-size: 11.5px; }
   .donateButton { min-width: 78px; padding-inline: 10px; font-size: 11px; }
 }
 

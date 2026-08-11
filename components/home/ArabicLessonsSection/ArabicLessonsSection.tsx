@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { Container } from "@/components/ui/Container";
+import { SectionPageLink } from "@/components/ui/SectionPageLink/SectionPageLink";
 import styles from "./ArabicLessonsSection.module.css";
 
 const lessons = [
@@ -103,7 +104,7 @@ export function ArabicLessonsSection() {
   return (
     <section className={styles.section} aria-labelledby="lessons-title">
       <Container className={styles.layout}>
-        <div className={styles.intro}><span>استمع وتعلّم</span><h2 id="lessons-title">دروس في اللغة العربية</h2><p>قائمة صوتية متحركة لعبارات عملية تحتاجها في الدراسة والحياة اليومية.</p><div className={styles.soundWave} aria-hidden="true">{Array.from({ length: 18 }, (_, index) => <i key={index} />)}</div></div>
+        <div className={styles.intro}><span>استمع وتعلّم</span><h2 id="lessons-title">دروس في اللغة العربية</h2><p>قائمة صوتية متحركة لعبارات عملية تحتاجها في الدراسة والحياة اليومية.</p><SectionPageLink href="/audio-lessons" label="كل الدروس الصوتية" /><div className={styles.soundWave} aria-hidden="true">{Array.from({ length: 18 }, (_, index) => <i key={index} />)}</div></div>
         <div className={`${styles.viewport} ${dragging ? styles.dragging : ""}`} onPointerDown={startDrag} onPointerMove={dragLessons} onPointerUp={finishDrag} onPointerCancel={finishDrag} onWheel={scrollLessons} onMouseEnter={pauseOnHover} onMouseLeave={resumeAfterHover}><div ref={trackRef} className={styles.track}>{[...lessons, ...lessons].map((lesson, index) => <article className={styles.lesson} key={`${lesson.title}-${index}`} aria-hidden={index >= lessons.length || undefined}><button type="button" tabIndex={index >= lessons.length ? -1 : undefined} onClick={() => playLesson(lesson.title, lesson.phrase)} aria-label={`${playing === lesson.title ? "إيقاف" : "تشغيل"} درس ${lesson.title}`}><span>{playing === lesson.title ? "Ⅱ" : "▶"}</span></button><div><small>{lesson.level}</small><h3>{lesson.title}</h3><p>{lesson.phrase}</p></div><time>{lesson.duration}</time></article>)}</div></div>
       </Container>
     </section>

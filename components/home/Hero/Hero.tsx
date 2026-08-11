@@ -1,28 +1,28 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import type { FormEvent } from "react";
 import { Container } from "@/components/ui/Container";
 import { ArrowLeftIcon } from "@/components/ui/Icons";
-import { useHomeTabs } from "@/components/home/HomeTabsContext";
 import styles from "./Hero.module.css";
 
 export function Hero() {
-  const { setActiveTab } = useHomeTabs();
+  const router = useRouter();
 
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const query = String(formData.get("search") ?? "");
     const normalizedQuery = query.trim();
-    if (/خبر|وافد/.test(normalizedQuery)) setActiveTab("news");
-    else if (/نشاط|فعالية/.test(normalizedQuery)) setActiveTab("activities");
-    else if (/مقال|إبداع/.test(normalizedQuery)) setActiveTab("articles");
-    else if (/فيديو|شاهد/.test(normalizedQuery)) setActiveTab("videos");
-    else if (/كتاب|مكتبة/.test(normalizedQuery)) setActiveTab("library");
-    else if (/عربي|درس|صوت/.test(normalizedQuery)) setActiveTab("arabic");
-    else setActiveTab("home");
-    window.setTimeout(() => document.getElementById("home-content")?.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
+    let destination = "/#home-content";
+    if (/خبر|وافد/.test(normalizedQuery)) destination = "/news#home-content";
+    else if (/نشاط|فعالية/.test(normalizedQuery)) destination = "/activities#home-content";
+    else if (/مقال|إبداع/.test(normalizedQuery)) destination = "/articles#home-content";
+    else if (/فيديو|شاهد/.test(normalizedQuery)) destination = "/videos#home-content";
+    else if (/كتاب|مكتبة/.test(normalizedQuery)) destination = "/library#home-content";
+    else if (/عربي|درس|صوت/.test(normalizedQuery)) destination = "/learn-arabic#home-content";
+    router.push(destination);
   };
 
   return (
@@ -40,10 +40,10 @@ export function Hero() {
             <input name="search" type="search" placeholder="ابحث في الأخبار والخدمات والمكتبة..." aria-label="ابحث في الموقع" />
             <button type="submit">بحث</button>
           </form>
-          <div className={styles.heroActions}>
+          {/* <div className={styles.heroActions}>
             <a className={styles.primaryButton} href="#services">اكتشف خدماتنا <ArrowLeftIcon /></a>
             <a className={styles.textButton} href="#about"><span className={styles.play}>▶</span> تعرّف علينا</a>
-          </div>
+          </div> */}
         </div>
       </Container>
       <a href="#home-content" className={styles.scrollHint} aria-label="انتقل إلى محتوى الصفحة"><span>⌄</span></a>

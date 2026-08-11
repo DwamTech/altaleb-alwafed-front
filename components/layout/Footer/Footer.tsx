@@ -23,7 +23,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <Container className={styles.footerGrid}>
         <div className={styles.footerIntro}>
-          <a className={styles.footerLogo} href="#home" aria-label="جمعية أصدقاء الطالب الوافد - الرئيسية">
+          <a className={styles.footerLogo} href="/" aria-label="جمعية أصدقاء الطالب الوافد - الرئيسية">
             <Image src="/logo1.png" alt="جمعية أصدقاء الطالب الوافد" width={501} height={300} />
           </a>
           <p>
@@ -38,7 +38,7 @@ export function Footer() {
             <a href="http://isfsegypt.com/pageother.php?catsmktba=15" {...externalLinkProps}>
               نبذة عن الجمعية
             </a>
-            <a href="http://isfsegypt.net/pageother-46.html" {...externalLinkProps}>
+            <a href="/donate">
               رقم الحساب 89604 بنك فيصل الإسلامي - فرع مصر الجديدة
             </a>
             <a href="http://isfsegypt.com/" {...externalLinkProps}>

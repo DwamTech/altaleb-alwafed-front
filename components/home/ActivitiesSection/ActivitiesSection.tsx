@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { SectionPageLink } from "@/components/ui/SectionPageLink/SectionPageLink";
 import styles from "./ActivitiesSection.module.css";
 
 const activities = [
@@ -14,7 +15,7 @@ export function ActivitiesSection() {
   return (
     <section className={styles.section} aria-labelledby="activities-title">
       <Container>
-        <header className={styles.heading}><div><span>نصنع الذكريات معًا</span><h2 id="activities-title">أنشطــة الـجـمعــية</h2></div><p>فعاليات متنوعة تمنح الطالب الوافد فرصة للتعلم والتواصل والاندماج.</p></header>
+        <header className={styles.heading}><div><span>نصنع الذكريات معًا</span><h2 id="activities-title">أنشطــة الـجـمعــية</h2></div><p>فعاليات متنوعة تمنح الطالب الوافد فرصة للتعلم والتواصل والاندماج.</p><SectionPageLink href="/activities" label="كل الأنشطة" /></header>
         <div className={styles.viewport}>
           <div className={styles.track}>
             {slides.map((item, index) => (

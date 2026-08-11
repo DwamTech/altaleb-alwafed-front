@@ -1,4 +1,4 @@
-.shell { padding: 58px 0 0; background: #f7f9f4; }
+.shell { padding: 58px 0 clamp(55px,6vw,90px); scroll-margin-top: 140px; background: #f7f9f4; }
 .layout { display: grid; grid-template-columns: minmax(245px,1fr) minmax(0,3fr); gap: clamp(26px,3vw,50px); align-items: stretch; }
 .contentColumn { min-width: 0; overflow: clip; background: white; box-shadow: 0 14px 45px rgba(5,56,96,.045); }
 .contentColumn > section { width: 100%; padding-block: clamp(58px,5vw,88px); }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { SectionPageLink } from "@/components/ui/SectionPageLink/SectionPageLink";
 import styles from "./IslamicSection.module.css";
 
 export function IslamicSection() {
@@ -16,7 +17,7 @@ export function IslamicSection() {
           <h2 id="islamic-title">Faith, Knowledge and the Journey of a Student</h2>
           <p>Seeking knowledge is more than an academic pursuit; it is a path that shapes character, deepens purpose and connects people across cultures. A student who travels to learn carries both hope and responsibility.</p>
           <p>Through compassion, patience and shared values, every new place can become a welcoming home and every challenge can become an opportunity to grow.</p>
-          <a href="#home-content">Read the full article <span aria-hidden="true">←</span></a>
+          <SectionPageLink href="/articles" label="Read the full article" />
         </article>
       </Container>
     </section>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { SectionPageLink } from "@/components/ui/SectionPageLink/SectionPageLink";
 import styles from "./VideosSection.module.css";
 
 const videos = [
@@ -21,7 +22,7 @@ export function VideosSection() {
       <Container>
         <header className={styles.heading}>
           <div><span>شاهد الآن</span><h2 id="videos-title">جديد الفيديوهات</h2></div>
-          <a href="https://www.youtube.com/@isfsegypt" target="_blank" rel="noreferrer">قناتنا على يوتيوب <b>←</b></a>
+          <SectionPageLink href="/videos" label="كل الفيديوهات" />
         </header>
 
         <div className={styles.viewport}>

@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { SectionPageLink } from "@/components/ui/SectionPageLink/SectionPageLink";
 import styles from "./ArabicBooksSection.module.css";
 
 const books = [
@@ -16,7 +17,7 @@ export function ArabicBooksSection() {
   return (
     <section className={styles.section} aria-labelledby="books-title">
       <Container>
-        <header className={styles.heading}><span>مكتبتك التعليمية</span><h2 id="books-title">كتب في اللغة العربية</h2><p>مجموعة مختارة تساعدك على تطوير القراءة والكتابة والمحادثة خطوة بخطوة.</p></header>
+        <header className={styles.heading}><span>مكتبتك التعليمية</span><h2 id="books-title">كتب في اللغة العربية</h2><p>مجموعة مختارة تساعدك على تطوير القراءة والكتابة والمحادثة خطوة بخطوة.</p><SectionPageLink href="/arabic-library" label="كل الكتب" /></header>
         <div className={styles.viewport}>
           <div className={styles.track}>
             {bookLoop.map((book, index) => {

@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { SectionPageLink } from "@/components/ui/SectionPageLink/SectionPageLink";
 import styles from "./ArticlesSection.module.css";
 
 const articles = [
@@ -18,7 +19,7 @@ export function ArticlesSection() {
   return (
     <section className={styles.section} aria-labelledby="articles-title">
       <Container>
-        <header className={styles.heading}><span>اقرأ واكتشف</span><h2 id="articles-title">جديد المقـــــالات</h2></header>
+        <header className={styles.heading}><span>اقرأ واكتشف</span><h2 id="articles-title">جديد المقـــــالات</h2><SectionPageLink href="/articles" label="كل المقالات" /></header>
         <div className={styles.viewport}>
           <div className={styles.track}>
             {articleLoop.map((article, index) => {
