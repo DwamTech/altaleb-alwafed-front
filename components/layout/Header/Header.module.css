@@ -1,0 +1,66 @@
+.topBar { background: var(--teal); color: rgba(255,255,255,.78); font-size: 12px; }
+.topBarInner { min-height: 38px; display: flex; align-items: center; justify-content: space-between; }
+.quickLinks { display: flex; align-items: center; gap: 22px; }
+.quickLinks a { position: relative; transition: color .2s ease; }
+.quickLinks a:not(:last-child)::after { content: ""; position: absolute; left: -12px; top: 50%; width: 3px; height: 3px; border-radius: 50%; background: rgba(149,209,18,.7); }
+.quickLinks a:hover { color: var(--green); }
+.socialLinks { display: flex; align-items: center; gap: 8px; direction: ltr; }
+.socialLinks a { width: 27px; height: 27px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; color: rgba(255,255,255,.78); transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+.socialLinks a:hover { color: var(--teal); background: var(--green); border-color: var(--green); transform: translateY(-2px); }
+.socialLinks svg { width: 13px; height: 13px; }
+.socialLinks a:first-child svg, .socialLinks a:nth-child(3) svg { fill: currentColor; stroke: none; }
+.siteHeader { min-height: 88px; background: rgba(255,255,255,.98); position: relative; z-index: 20; box-shadow: 0 1px 0 rgba(5,56,96,.08); }
+.navWrap { min-height: 88px; display: grid; grid-template-columns: minmax(205px, 250px) minmax(0, 1fr) 96px; align-items: center; gap: clamp(12px, 2vw, 32px); }
+.logo { display: inline-flex; align-items: center; gap: 7px; min-width: 235px; flex-shrink: 0; }
+.badgeImage { width: 50px; height: 50px; object-fit: contain; }
+.wordmarkImage { width: 178px; height: auto; object-fit: contain; }
+.desktopNav { min-width: 0; min-height: 88px; display: flex; align-items: center; justify-content: center; gap: clamp(2px, .45vw, 8px); }
+.desktopNav button { height: 42px; padding: 0 9px; border: 0; border-radius: 4px; color: #4f5d68; background: transparent; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; transition: color .2s ease, background .2s ease; }
+.desktopNav button:hover, .desktopNav button.active { color: var(--teal); background: var(--cream); }
+.desktopNav button.active { box-shadow: inset 0 -3px 0 var(--green); }
+.donateButton { min-width: 88px; height: 42px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; color: white; background: var(--teal); font-size: 12px; font-weight: 800; white-space: nowrap; box-shadow: 0 9px 22px rgba(5,56,96,.15); transition: transform .2s ease, background .2s ease, color .2s ease; }
+.donateButton:hover { color: var(--teal); background: var(--green); transform: translateY(-2px); }
+.desktopDonate { justify-self: end; }
+.mobileMenu { display: none; margin-right: auto; position: relative; }
+.mobileMenu summary { list-style: none; width: 42px; height: 42px; border: 1px solid var(--border); display: grid; align-content: center; gap: 5px; padding: 10px; border-radius: 6px; cursor: pointer; }
+.mobileMenu summary::-webkit-details-marker { display: none; }
+.mobileMenu summary span { display: block; height: 2px; background: var(--teal); }
+.mobileMenu nav { position: absolute; top: 53px; left: 0; z-index: 5; width: min(285px, calc(100vw - 28px)); padding: 10px; display: grid; gap: 3px; background: white; border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 18px 45px rgba(5,56,96,.16); }
+.mobileMenu nav button { width: 100%; padding: 11px 12px; border: 0; border-radius: 4px; color: var(--teal); background: transparent; text-align: right; font-size: 14px; font-weight: 700; cursor: pointer; }
+.mobileMenu nav button:hover, .mobileMenu nav button.active { background: var(--cream); }
+.mobileMenu .donateButton { width: 100%; margin-top: 5px; }
+
+@media (max-width: 1150px) {
+  .navWrap { grid-template-columns: 195px minmax(0, 1fr) 80px; gap: 10px; }
+  .logo { min-width: 195px; gap: 5px; }
+  .badgeImage { width: 44px; height: 44px; }
+  .wordmarkImage { width: 145px; }
+  .desktopNav button { padding-inline: 6px; font-size: 11.5px; }
+  .donateButton { min-width: 78px; padding-inline: 10px; font-size: 11px; }
+}
+
+@media (max-width: 900px) {
+  .siteHeader, .navWrap { min-height: 74px; }
+  .navWrap { display: flex; }
+  .desktopNav, .desktopDonate { display: none; }
+  .mobileMenu { display: block; }
+  .navWrap { justify-content: space-between; }
+  .logo { min-width: auto; }
+  .badgeImage { width: 44px; height: 44px; }
+  .wordmarkImage { width: 165px; }
+}
+
+@media (max-width: 560px) {
+  .topBarInner { min-height: 42px; }
+  .quickLinks { gap: 14px; font-size: 10px; }
+  .quickLinks a:not(:last-child)::after { left: -8px; }
+  .socialLinks { gap: 5px; }
+  .socialLinks a { width: 24px; height: 24px; }
+  .badgeImage { width: 39px; height: 39px; }
+  .wordmarkImage { width: 135px; }
+}
+
+@media (max-width: 380px) {
+  .quickLinks a:nth-child(2) { display: none; }
+  .wordmarkImage { width: 120px; }
+}

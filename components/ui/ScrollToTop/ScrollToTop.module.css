@@ -1,0 +1,68 @@
+.button {
+  position: fixed;
+  left: 28px;
+  bottom: 28px;
+  z-index: 50;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 50%;
+  color: var(--white);
+  background: rgba(5, 56, 96, .94);
+  box-shadow: 0 12px 32px rgba(5, 56, 96, .25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(18px) scale(.9);
+  transition: opacity .25s ease, visibility .25s ease, transform .25s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.button:hover {
+  color: var(--teal);
+  background: var(--green);
+  box-shadow: 0 14px 36px rgba(149, 209, 18, .3);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(149, 209, 18, .4);
+  outline-offset: 4px;
+}
+
+.button svg {
+  position: relative;
+  z-index: 1;
+  width: 23px;
+  stroke-width: 2.2;
+}
+
+.ring {
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(149, 209, 18, .42);
+  border-radius: inherit;
+}
+
+.button:hover .ring { border-color: rgba(5, 56, 96, .28); }
+
+@media (max-width: 560px) {
+  .button {
+    left: 16px;
+    bottom: 18px;
+    width: 46px;
+    height: 46px;
+  }
+}

@@ -1,0 +1,26 @@
+.section { padding: clamp(72px, 8vw, 115px) 0; background: white; }
+.heading { margin-bottom: 38px; }
+.heading span { color: #719f12; font-size: 11px; font-weight: 800; }
+.heading h2 { margin: 4px 0 0; font-size: clamp(31px, 3.2vw, 46px); }
+.viewport { overflow: hidden; padding-block: 8px 28px; }
+.track { --slider-gap: 16px; width: max-content; display: flex; gap: var(--slider-gap); direction: rtl; animation: articlesAutoSlide 56s linear infinite; will-change: transform; }
+.viewport:hover .track, .viewport:focus-within .track { animation-play-state: paused; }
+.card { position: relative; width: clamp(245px, 21vw, 315px); min-height: 315px; flex-shrink: 0; padding: 28px; display: flex; flex-direction: column; overflow: hidden; direction: rtl; border: 1px solid var(--border); background: #fafbf8; transition: transform .25s ease, box-shadow .25s ease; }
+.card:hover { transform: translateY(-7px); box-shadow: 0 18px 42px rgba(5,56,96,.09); }
+.featured { color: white; background: var(--teal); border-color: var(--teal); }
+.number { position: absolute; left: 20px; top: 13px; color: rgba(5,56,96,.08); font-size: 55px; font-weight: 900; }
+.featured .number { color: rgba(255,255,255,.07); }
+.card > span { position: relative; color: #719f12; font-size: 10px; font-weight: 800; }
+.featured > span { color: var(--green); }
+.card h3 { position: relative; margin: 34px 0 12px; font-size: 20px; line-height: 1.6; }
+.card > p { position: relative; margin: 0; color: var(--gray); font-size: 12px; line-height: 1.95; }
+.featured > p { color: rgba(255,255,255,.6); }
+.card footer { position: relative; margin-top: auto; padding-top: 20px; display: flex; align-items: center; justify-content: space-between; }
+.card footer small { color: #929aa1; font-size: 9px; }
+.featured footer small { color: rgba(255,255,255,.5); }
+.card footer a { width: 35px; height: 35px; display: grid; place-items: center; color: var(--teal); background: white; border: 1px solid var(--border); }
+.featured footer a { color: var(--teal); background: var(--green); border-color: var(--green); }
+@keyframes articlesAutoSlide { from { transform: translateX(0); } to { transform: translateX(calc(50% + (var(--slider-gap) / 2))); } }
+@media (max-width: 1050px) { .card { width: min(360px, calc((100vw - 116px) / 2)); } }
+@media (max-width: 560px) { .card { width: calc(100vw - 76px); min-height: 280px; } }
+@media (prefers-reduced-motion: reduce) { .track { animation-play-state: paused; } }

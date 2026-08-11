@@ -1,0 +1,15 @@
+.shell { padding: 58px 0 0; background: #f7f9f4; }
+.layout { display: grid; grid-template-columns: minmax(245px,1fr) minmax(0,3fr); gap: clamp(26px,3vw,50px); align-items: stretch; }
+.contentColumn { min-width: 0; overflow: clip; background: white; box-shadow: 0 14px 45px rgba(5,56,96,.045); }
+.contentColumn > section { width: 100%; padding-block: clamp(58px,5vw,88px); }
+.contentColumn > section > div { width: 100%; max-width: none; padding-inline: clamp(24px,3.2vw,54px); }
+.contentColumn > section h2 { font-size: clamp(28px,2.7vw,42px); }
+
+@media (max-width: 1050px) {
+  .shell { padding-top: 48px; }
+  .layout { grid-template-columns: 1fr; }
+  .contentColumn { order: 1; }
+  .contentColumn > section > div { padding-inline: clamp(22px,5vw,48px); }
+}
+
+@media (max-width: 560px) { .shell { padding-top: 30px; } .contentColumn > section { padding-block: 52px; } .contentColumn > section > div { padding-inline: 18px; } .contentColumn > section h2 { font-size: 29px; } }

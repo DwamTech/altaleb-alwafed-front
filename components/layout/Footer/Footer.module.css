@@ -1,0 +1,273 @@
+.footer {
+  padding-top: 70px;
+  color: white;
+  background: #032c4c;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: minmax(220px, .9fr) minmax(320px, 1.55fr) minmax(260px, 1fr);
+  gap: clamp(36px, 4vw, 72px);
+  align-items: start;
+  padding-bottom: 54px;
+}
+
+.footerLogo {
+  display: block;
+  width: min(270px, 100%);
+}
+
+.footerLogo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.footerIntro > p {
+  max-width: 360px;
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, .62);
+  font-size: 13px;
+  line-height: 2;
+}
+
+.footerGrid h3 {
+  margin: 0 0 18px;
+  color: var(--green);
+  font-size: 17px;
+}
+
+.associationInfo {
+  min-width: 0;
+  padding-inline: clamp(0px, 1vw, 18px);
+}
+
+.infoLinks {
+  display: grid;
+  gap: 10px;
+}
+
+.infoLinks a {
+  position: relative;
+  padding-inline-start: 18px;
+  color: rgba(255, 255, 255, .76);
+  font-size: 12px;
+  line-height: 1.75;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.infoLinks a::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: .75em;
+  width: 7px;
+  height: 2px;
+  background: var(--green);
+}
+
+.infoLinks a:hover {
+  color: var(--green);
+  transform: translateX(-3px);
+}
+
+.associationInfo address {
+  margin-top: 19px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  color: rgba(255, 255, 255, .58);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.9;
+}
+
+.contactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 17px;
+  margin-top: 13px;
+}
+
+.contactLinks a {
+  color: rgba(255, 255, 255, .78);
+  font-size: 11px;
+  transition: color .2s ease;
+}
+
+.contactLinks a:hover {
+  color: var(--green);
+}
+
+.newsletter > p {
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, .6);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.newsletter form {
+  min-height: 50px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, .13);
+  background: rgba(255, 255, 255, .08);
+}
+
+.newsletter input {
+  min-width: 0;
+  padding: 0 11px;
+  border: 0;
+  outline: 0;
+  color: white;
+  background: transparent;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.newsletter input::placeholder {
+  color: rgba(255, 255, 255, .42);
+}
+
+.newsletter button {
+  min-width: 76px;
+  padding: 0 14px;
+  border: 0;
+  color: var(--teal);
+  background: var(--green);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.newsletter button:hover {
+  background: #abe527;
+}
+
+.newsletter small {
+  display: block;
+  margin-top: 9px;
+  color: var(--green);
+  font-size: 10px;
+}
+
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, .09);
+  background: rgba(0, 0, 0, .12);
+}
+
+.footerBottom {
+  min-height: 78px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  justify-self: start;
+}
+
+.legalLinks a,
+.copyright,
+.developerCredit > span:first-child {
+  color: rgba(255, 255, 255, .48);
+  font-size: 10px;
+}
+
+.legalLinks a {
+  transition: color .2s ease;
+}
+
+.legalLinks a:hover {
+  color: var(--green);
+}
+
+.copyright {
+  text-align: center;
+}
+
+.developerCredit {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  justify-self: end;
+}
+
+.developerCredit:hover > span:first-child {
+  color: white;
+}
+
+.dwamLogo {
+  width: 42px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+}
+
+.dwamLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 960px) {
+  .footerGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .newsletter {
+    grid-column: 1 / -1;
+    max-width: 540px;
+  }
+
+  .footerBottom {
+    grid-template-columns: 1fr 1fr;
+    padding-block: 18px;
+  }
+
+  .copyright {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 620px) {
+  .footer {
+    padding-top: 54px;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .newsletter {
+    grid-column: auto;
+  }
+
+  .footerBottom {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    justify-items: center;
+    padding-block: 22px;
+    text-align: center;
+  }
+
+  .legalLinks,
+  .developerCredit {
+    justify-self: center;
+  }
+
+  .copyright {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

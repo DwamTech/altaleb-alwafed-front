@@ -1,0 +1,23 @@
+.section { padding: clamp(75px, 8vw, 120px) 0; overflow: hidden; color: white; background: var(--teal); }
+.heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 42px; }
+.heading span { color: var(--green); font-size: 12px; font-weight: 800; }
+.heading h2 { margin: 6px 0 0; font-size: clamp(31px, 3.4vw, 48px); }
+.heading p { max-width: 490px; margin: 0 0 7px; color: rgba(255,255,255,.58); font-size: 13px; line-height: 1.9; }
+.viewport { overflow: hidden; margin-inline: 0; padding-inline: 0; }
+.track { width: max-content; display: flex; gap: 22px; animation: activitySlide 34s linear infinite; will-change: transform; }
+.viewport:hover .track { animation-play-state: paused; }
+.card { width: clamp(300px, 28vw, 410px); flex: 0 0 auto; overflow: hidden; color: var(--teal); background: white; box-shadow: 0 20px 50px rgba(0,0,0,.18); }
+.image { position: relative; height: 225px; overflow: hidden; }
+.image img { object-fit: cover; object-position: 25% center; transition: transform .5s ease; }
+.card:hover .image img { transform: scale(1.06); }
+.body { padding: 24px; }
+.category { color: #719f12; font-size: 10px; font-weight: 800; }
+.body h3 { margin: 8px 0 10px; font-size: 19px; line-height: 1.6; }
+.body p { min-height: 52px; margin: 0; color: var(--gray); font-size: 12px; line-height: 1.9; }
+.meta { margin-top: 17px; padding-top: 14px; display: flex; justify-content: space-between; border-top: 1px solid var(--border); color: #8a949c; font-size: 9px; }
+.body > a { margin-top: 17px; display: inline-flex; gap: 8px; align-items: center; font-size: 11px; font-weight: 800; }
+.body > a b { color: var(--green); font-size: 17px; }
+@keyframes activitySlide { from { transform: translateX(0); } to { transform: translateX(50%); } }
+@media (max-width: 820px) { .heading { align-items: flex-start; flex-direction: column; gap: 12px; } }
+@media (max-width: 560px) { .card { width: 84vw; } .image { height: 205px; } .track { gap: 15px; animation-duration: 28s; } }
+@media (prefers-reduced-motion: reduce) { .track { animation-play-state: paused; } }
