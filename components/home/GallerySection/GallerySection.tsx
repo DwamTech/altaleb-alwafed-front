@@ -5,9 +5,9 @@ import styles from "./GallerySection.module.css";
 
 const gallery = [
   { src: "/students-hero-boys.png", alt: "طلاب الجمعية في الحرم الجامعي" },
-  { src: "/students-hero.png", alt: "مجموعة من الطلاب الوافدين" },
+  { src: "/students-hero-boys.png", alt: "مجموعة من الطلاب الوافدين" },
   { src: "/students-hero-boys.png", alt: "تواصل الطلاب خلال الأنشطة" },
-  { src: "/students-hero.png", alt: "لحظات من مجتمع الطلاب" },
+  { src: "/students-hero-boys.png", alt: "لحظات من مجتمع الطلاب" },
   { src: "/students-hero-boys.png", alt: "طلاب من ثقافات متعددة" },
 ];
 

@@ -20,7 +20,7 @@ export function ActivitiesSection() {
           <div className={styles.track}>
             {slides.map((item, index) => (
               <article className={styles.card} key={`${item.title}-${index}`} aria-hidden={index >= activities.length || undefined}>
-                <div className={styles.image}><Image src={index % 2 === 0 ? "/students-hero-boys.png" : "/students-hero.png"} alt="طلاب خلال أنشطة الجمعية" fill sizes="(max-width: 560px) 86vw, 380px" /></div>
+                <div className={styles.image}><Image src="/students-hero-boys.png" alt="طلاب خلال أنشطة الجمعية" fill sizes="(max-width: 560px) 86vw, 380px" /></div>
                 <div className={styles.body}><span className={styles.category}>أنشطة الجمعية</span><h3>{item.title}</h3><p>{item.text}</p><div className={styles.meta}><span>◉ {item.views} مشاهدة</span><time>{item.date}</time></div><a href="#contact">المزيد <b>←</b></a></div>
               </article>
             ))}

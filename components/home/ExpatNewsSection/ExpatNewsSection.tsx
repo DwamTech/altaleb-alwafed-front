@@ -16,7 +16,7 @@ export function ExpatNewsSection() {
       <Container>
         <header className={styles.heading}><span>متابعة مستمرة</span><h2 id="expat-news-title">أخبـــار الــوافــديـن</h2><p>كل ما يهم الطالب الوافد من أخبار ومستجدات وفرص.</p><SectionPageLink href="/news" label="كل الأخبار" /></header>
         <div className={styles.viewport}><div className={styles.track}>
-          {slides.map((item, index) => <article className={styles.card} key={`${item.title}-${index}`} aria-hidden={index >= news.length || undefined}><div className={styles.image}><Image src={index % 2 ? "/students-hero-boys.png" : "/students-hero.png"} alt="أخبار الطلاب الوافدين" fill sizes="(max-width: 560px) 88vw, 420px" /><span>خبر جديد</span></div><div className={styles.body}><div className={styles.meta}><time>{item.date}</time><span>{item.views} مشاهدة</span></div><h3>{item.title}</h3><p>{item.text}</p><a href="#home-content">اقرأ المزيد <b>←</b></a></div></article>)}
+          {slides.map((item, index) => <article className={styles.card} key={`${item.title}-${index}`} aria-hidden={index >= news.length || undefined}><div className={styles.image}><Image src="/students-hero-boys.png" alt="أخبار الطلاب الوافدين" fill sizes="(max-width: 560px) 88vw, 420px" /><span>خبر جديد</span></div><div className={styles.body}><div className={styles.meta}><time>{item.date}</time><span>{item.views} مشاهدة</span></div><h3>{item.title}</h3><p>{item.text}</p><a href="#home-content">اقرأ المزيد <b>←</b></a></div></article>)}
         </div></div>
       </Container>
     </section>

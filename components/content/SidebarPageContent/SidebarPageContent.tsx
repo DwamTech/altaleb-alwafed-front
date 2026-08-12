@@ -80,7 +80,7 @@ export function SidebarPageContent({ page }: { page: SidebarPageId }) {
 
           {page === "reports" && <div className={styles.reportGrid}>{reports.map((year, index) => <article key={year}><span>تقرير سنوي</span><strong>{year}</strong><p>ملخص لأنشطة الجمعية وبرامجها وخدماتها المقدمة للطلاب الوافدين خلال العام.</p><div><small>PDF</small><a href="#contact">استعرض التقرير ←</a></div><b>0{index + 1}</b></article>)}</div>}
 
-          {page === "gallery" && <div className={styles.gallery}>{Array.from({ length: 8 }, (_, index) => <figure key={index}><Image src={index % 2 ? "/students-hero.png" : "/students-hero-boys.png"} alt={`صورة من أنشطة الجمعية ${index + 1}`} fill sizes="(max-width:620px) 90vw, 28vw" /><figcaption><span>0{index + 1}</span><strong>{index % 2 ? "لقاءات الطلاب الوافدين" : "أنشطة أصدقاء الجمعية"}</strong></figcaption></figure>)}</div>}
+          {page === "gallery" && <div className={styles.gallery}>{Array.from({ length: 8 }, (_, index) => <figure key={index}><Image src="/students-hero-boys.png" alt={`صورة من أنشطة الجمعية ${index + 1}`} fill sizes="(max-width:620px) 90vw, 28vw" /><figcaption><span>0{index + 1}</span><strong>{index % 2 ? "لقاءات الطلاب الوافدين" : "أنشطة أصدقاء الجمعية"}</strong></figcaption></figure>)}</div>}
 
           {page === "arabicLibrary" && <div className={styles.bookGrid}>{books.map(([title, author], index) => <article key={title}><div className={styles.book}><small>مكتبة تعلم العربية</small><strong>{title}</strong><span>{author}</span></div><div><b>0{index + 1}</b><a href="#contact">استعرض الكتاب ←</a></div></article>)}</div>}
 

@@ -5,13 +5,13 @@ import styles from "./VideosSection.module.css";
 
 const videos = [
   { title: "كيف تبدأ رحلتك الدراسية بثقة؟", duration: "04:18", image: "/students-hero-boys.png" },
-  { title: "لقطات من ملتقى الطلاب الوافدين", duration: "06:42", image: "/students-hero.png" },
+  { title: "لقطات من ملتقى الطلاب الوافدين", duration: "06:42", image: "/students-hero-boys.png" },
   { title: "خدمات الجمعية في دقيقة", duration: "01:35", image: "/students-hero-boys.png" },
-  { title: "يوم من أنشطة أصدقاء الطالب الوافد", duration: "03:27", image: "/students-hero.png" },
+  { title: "يوم من أنشطة أصدقاء الطالب الوافد", duration: "03:27", image: "/students-hero-boys.png" },
   { title: "دليل الطالب الوافد في مصر", duration: "05:16", image: "/students-hero-boys.png" },
-  { title: "فعاليات ثقافية تجمع طلاب العالم", duration: "07:08", image: "/students-hero.png" },
+  { title: "فعاليات ثقافية تجمع طلاب العالم", duration: "07:08", image: "/students-hero-boys.png" },
   { title: "خطوات الاستفادة من خدمات الجمعية", duration: "02:54", image: "/students-hero-boys.png" },
-  { title: "حكايات نجاح لطلاب وافدين", duration: "04:49", image: "/students-hero.png" },
+  { title: "حكايات نجاح لطلاب وافدين", duration: "04:49", image: "/students-hero-boys.png" },
 ];
 
 const videoLoop = [...videos, ...videos];

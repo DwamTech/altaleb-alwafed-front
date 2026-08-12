@@ -37,7 +37,7 @@ const archiveContent: Record<ContentSectionId, ArchiveConfig> = {
       ["برنامج استقبال الطلاب الجدد", "تفاصيل برنامج التعارف والإرشاد المخصص للطلاب المستجدين.", "برامج الجمعية", "٩٨٠ مشاهدة", "٢٩ يوليو ٢٠٢٦"],
       ["منح تدريبية لتنمية المهارات", "فرص تدريبية في مجالات اللغة والتواصل والتطوير المهني.", "تدريب", "٨٧٥ مشاهدة", "٢٦ يوليو ٢٠٢٦"],
       ["خدمات إلكترونية جديدة للوافدين", "إجراءات أكثر سهولة وسرعة لمتابعة الطلبات والخدمات.", "تقنية", "٧٩٠ مشاهدة", "٢٢ يوليو ٢٠٢٦"],
-    ].map(([title, text, category, meta, date], index) => ({ title, text, category, meta, date, image: index % 2 ? "/students-hero-boys.png" : "/students-hero.png" })),
+    ].map(([title, text, category, meta, date]) => ({ title, text, category, meta, date, image: "/students-hero-boys.png" })),
   },
   activities: {
     eyebrow: "فعالياتنا وذكرياتنا",
@@ -53,7 +53,7 @@ const archiveContent: Record<ContentSectionId, ArchiveConfig> = {
       ["زيارة ثقافية إلى المتحف", "تجربة تعليمية تفاعلية للتعرف على الحضارة المصرية.", "زيارات", "٨٤٥ مشاهدة", "٢٠ يوليو ٢٠٢٦"],
       ["حلقة نقاش حول تجربة الغربة", "مساحة آمنة لتبادل الخبرات والتحديات والحلول العملية.", "حوارات", "٦٩٠ مشاهدة", "١٦ يوليو ٢٠٢٦"],
       ["مسابقة الإبداع الطلابي", "فرصة لعرض المواهب في الكتابة والتصوير والفنون.", "مسابقات", "١٬٠٢٠ مشاهدة", "١٢ يوليو ٢٠٢٦"],
-    ].map(([title, text, category, meta, date], index) => ({ title, text, category, meta, date, image: index % 2 ? "/students-hero.png" : "/students-hero-boys.png" })),
+    ].map(([title, text, category, meta, date]) => ({ title, text, category, meta, date, image: "/students-hero-boys.png" })),
   },
   articles: {
     eyebrow: "قراءات وأفكار ملهمة",
@@ -69,7 +69,7 @@ const archiveContent: Record<ContentSectionId, ArchiveConfig> = {
       ["تفاصيل الحياة اليومية في مصر", "نصائح حول المواصلات والخدمات والتواصل والاندماج.", "الحياة في مصر", "مجتمع الوافدين"],
       ["طرق بسيطة لتطوير المحادثة بالعربية", "تدريبات يومية لاكتساب المفردات والتحدث بطلاقة.", "تعلم العربية", "قسم اللغة العربية"],
       ["من بداية جديدة إلى تجربة نجاح", "قصة طالب تجاوز تحديات الغربة وبنى شبكة قوية من الأصدقاء.", "قصص ملهمة", "فريق التحرير"],
-    ].map(([title, text, category, meta], index) => ({ title, text, category, meta, image: index % 2 ? "/students-hero-boys.png" : "/students-hero.png" })),
+    ].map(([title, text, category, meta]) => ({ title, text, category, meta, image: "/students-hero-boys.png" })),
   },
   videos: {
     eyebrow: "شاهد مكتبة الجمعية",
@@ -85,7 +85,7 @@ const archiveContent: Record<ContentSectionId, ArchiveConfig> = {
       ["فعاليات ثقافية تجمع طلاب العالم", "مشاهد من التنوع الثقافي داخل الجمعية.", "ثقافة", "07:08"],
       ["خطوات الاستفادة من خدمات الجمعية", "طريقة الوصول إلى الدعم والخدمات المتاحة.", "خدمات", "02:54"],
       ["حكايات نجاح لطلاب وافدين", "تجارب واقعية وملهمة من مجتمع الطلاب.", "قصص نجاح", "04:49"],
-    ].map(([title, text, category, meta], index) => ({ title, text, category, meta, image: index % 2 ? "/students-hero.png" : "/students-hero-boys.png" })),
+    ].map(([title, text, category, meta]) => ({ title, text, category, meta, image: "/students-hero-boys.png" })),
   },
   library: {
     eyebrow: "مصادر للقراءة والتعلم",

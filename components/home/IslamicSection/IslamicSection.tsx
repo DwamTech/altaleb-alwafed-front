@@ -8,7 +8,7 @@ export function IslamicSection() {
     <section className={styles.section} aria-labelledby="islamic-title">
       <Container className={styles.layout}>
         <div className={styles.visual}>
-          <Image src="/students-hero.png" alt="Students sharing knowledge on campus" fill sizes="(max-width: 820px) 92vw, 48vw" />
+          <Image src="/students-hero-boys.png" alt="Students sharing knowledge on campus" fill sizes="(max-width: 820px) 92vw, 48vw" />
           <div className={styles.visualBadge}><span>Read</span><strong>05</strong><small>MIN</small></div>
           <div className={styles.frame} aria-hidden="true" />
         </div>
