@@ -6,7 +6,7 @@ import styles from "./ServicePageContent.module.css";
 export type ServicePageId =
   | "institutes" | "universityAdmission" | "femaleStudents" | "postgraduate"
   | "results" | "forms" | "embassies" | "passportOffices"
-  | "courses" | "medical" | "housing" | "haramain" | "quran"
+  | "publicLibrary" | "courses" | "medical" | "housing" | "haramain" | "quran"
   | "seminars" | "camps" | "iftar" | "qurbani";
 
 type PageData = {
@@ -101,6 +101,15 @@ const pages: Record<ServicePageId, PageData> = {
       { title: "تجهيز الملف", text: "جهّز جواز السفر وصور الإقامة وخطاب الجهة الدراسية والمستندات المطلوبة.", tag: "02" },
       { title: "مراجعة المواعيد", text: "تحقق من أيام وساعات استقبال الجمهور قبل الذهاب إلى المكتب.", tag: "03" },
       { title: "متابعة الطلب", text: "احتفظ بإيصال المعاملة والتاريخ المحدد للمراجعة أو الاستلام.", tag: "04" },
+    ],
+  },
+  publicLibrary: {
+    group: "خدمات الجمعية", eyebrow: "معرفة وبحث", title: "المكتبة العامة",
+    description: "ببليوجرافيا المكتبة العامة بالجمعية ومصادرها الورقية والإلكترونية المتاحة لخدمة طلاب العلم والباحثين.",
+    items: [
+      { title: "مكتبة الجمعية", text: "مكتبة عامة للقراءة والبحث العلمي تضم آلاف العناوين ومرافق للبحث الإلكتروني والتصوير.", tag: "ورقية" },
+      { title: "المكتبة الإلكترونية", text: "مكتبة متكاملة للبحوث العربية والرسائل العلمية.", tag: "رقمية" },
+      { title: "المكتبة الشاملة", text: "مصدر إلكتروني للبحث والوصول إلى الكتب والمراجع.", tag: "مراجع" },
     ],
   },
   courses: {
@@ -227,6 +236,95 @@ const internationalStudentServices = [
   "تقديم جميع الخدمات التي تقدم إلى الطلاب المصريين بالجامعة.",
 ];
 
+const femaleStudentDepartmentTasks = [
+  "مهمة قسم الوافدات هي القيام بالخدمات التعليمية للطالبات الوافدات بالجامعة.",
+  "تطبيق كافة القرارات واللوائح الصادرة بخصوص أعمال شؤون التعليم بالنسبة للطالبات الوافدات.",
+  "إعداد سجلات القيد للطالبات متضمنة كافة البيانات والمعلومات الخاصة بهن، وكذلك تدرجهن الدراسي ونتائجهن وموقفهن من سداد المصروفات أو القيد على منح إن وجدت والجزاءات إن وجدت.",
+  "متابعة الكليات في ضرورة تحصيل الرسوم والمصروفات الدراسية المقررة على الطالبات الوافدات غير المقيدات على منح دراسية بالكليات المقررة عليها مصروفات، وتسجيلها بالسجل مع ذكر المبلغ ورقم الشيك أو الإشعار وبياناته.",
+  "اتخاذ إجراءات الترشيح والقيد ونقل القيد وإعادة القيد والتحويل والتشعيب ومنح الفرصة من الخارج وغيرها من أعمال التسجيل.",
+  "مراجعة كافة الشهادات والبيانات الخاصة بالطالبات الوافدات الصادرة من كلياتهن قبل التصويب عليها من السلطات المختصة، ثم التصديق عليها من وزارة الخارجية.",
+  "مراسلة السفارات الأجنبية وهيئات الأزهر الشريف والجامعات العربية الأخرى وجهات الأمن، ومتابعة الإجراءات الخاصة بالكشف الطبي وكذلك التحاليل الطبية المطلوبة.",
+  "متابعة موافقات الأمن وتسجيلها بالسجل وإخطار الكليات بها.",
+  "متابعة إجراءات التأمين وإخطار الكليات لإبلاغ الوحدة الحسابية.",
+  "إعداد سجل لقيد الطالبات يدون فيه بيان كل ما تضمنه ملف الطالبة، فضلًا عن تاريخ خروجها من الجامعة.",
+  "إعداد مذكرات خاصة بالمصروفات المقررة بشأن الإعفاء أو التخفيض من المصروفات للعرض على فضيلة الأستاذ الدكتور رئيس الجامعة، ثم العرض على مجلس الجامعة وإخطار الكليات بقرار المجلس لاتخاذ اللازم.",
+  "مراجعة قوائم أرقام الجلوس في نهاية العام ومطابقتها بالسجلات.",
+  "استلام نتائج الطالبات لجميع كليات فرع الجامعة ومراجعتها واعتمادها من فضيلة الأستاذ الدكتور رئيس الجامعة نيابة عن مجلس الكلية للكليات التي ليس لها مجلس.",
+  "الرد على الاستفسارات الواردة من الكليات أو الجهات المعنية فيما يخص الطالبات الوافدات.",
+  "اتخاذ الإجراءات الخاصة بصرف المنح المالية مثل الهبات والتبرعات.",
+];
+
+type FeaturedServiceId = "medical" | "housing" | "haramain" | "quran" | "seminars" | "camps" | "iftar" | "qurbani";
+
+const featuredServices: Record<FeaturedServiceId, {
+  image: string; imageAlt: string; label: string; heading: string; paragraphs: string[];
+  points?: string[]; callout?: { label: string; value: string }; download?: { label: string; href: string };
+}> = {
+  medical: {
+    image: "/service-medical-center.png", imageAlt: "طبيب يفحص أحد الطلاب الوافدين في المركز الطبي",
+    label: "رعاية صحية متكاملة", heading: "مركز ضياء الحق الطبي",
+    paragraphs: ["تنظم الجمعية سنويًا عددًا من القوافل الطبية، كما أنشأت مركز «ضياء الحق الطبي» بعزبة الهجانة بالكيلو 4.5 بمدينة نصر، وهو أول مركز طبي متخصص لعلاج الطالب الوافد.", "المركز متكامل ويضم جميع التخصصات لعلاج الطلبة الوافدين والفقراء والمحتاجين، إلى جانب إجراء الفحوص الطبية اللازمة وتقديم الدواء المناسب مجانًا."],
+    points: ["قوافل طبية سنوية", "تخصصات طبية متكاملة", "فحوص طبية لازمة", "تقديم الدواء المناسب مجانًا"],
+  },
+  housing: {
+    image: "/service-student-housing.png", imageAlt: "طلاب وافدون داخل السكن الطلابي للبنين",
+    label: "", heading: "",
+    paragraphs: ["أقامت الجمعية محضنًا طلابيًا للبنين عبارة عن عمارة سكنية تستوعب 150 طالبًا، وكذلك عمارة سكنية للطالبات، وتم تأثيثهما بأثاث جيد بالإضافة إلى مطبخ ومطعم مركزي.", "يهدف المشروع إلى رعاية الطلاب وتربيتهم من خلال المعايشة المستمرة، مع توفير الحد اللازم من الكفاية والرعاية عبر وسائل وأساليب علمية وعملية متدرجة، وذلك تحت إشراف لجنة الإسكان الطلابي التي تضم نخبة من أصحاب الخبرة في إدارة هذه المشروعات."],
+    points: ["سكن للبنين يستوعب 150 طالبًا", "مبنى مستقل لسكن الطالبات", "مطبخ ومطعم مركزي", "إشراف لجنة الإسكان الطلابي"],
+    download: { label: "تحميل استمارة التقدم للسكن", href: "http://isfsegypt.com/upload/sakan.doc" },
+  },
+  haramain: {
+    image: "/service-haramain-center.png", imageAlt: "مركز إسلامي يضم مسجدًا ومكتبة ومكانًا للتعلم",
+    label: "منارة للعلم والتوجيه", heading: "مركز الحرمين الإسلامي",
+    paragraphs: ["يُعد مركز الحرمين الإسلامي، المقام على مساحة 500م²، أحد منارات العلم والتوجيه بما يشمله من مسجد وملحق به مصلى للنساء ومكتبة عامة ومركز للدورات المتخصصة."],
+    points: ["مسجد", "مصلى للنساء", "مكتبة عامة", "مركز دورات متخصصة"],
+    callout: { label: "مساحة المركز", value: "500م²" },
+  },
+  quran: {
+    image: "/service-quran-circles.png", imageAlt: "حلقة تحفيظ وتجويد القرآن الكريم للطلاب",
+    label: "البرنامج العلمي والتربوي", heading: "حلقات تحفيظ وتجويد القرآن الكريم",
+    paragraphs: ["ضمن البرنامج العلمي والتربوي لمركز الدورات المتخصصة، تعقد على مدار أربعة أيام أسبوعيًا ثلاث حلقات لتحفيظ القرآن الكريم."],
+    points: ["برنامج الحفظ والتجويد", "برنامج الإجازة"],
+    callout: { label: "موعد حلقة التحفيظ والتلاوة", value: "السبت والإثنين والأربعاء بعد صلاة الفجر وحتى التاسعة صباحًا — مسجد الحرمين" },
+  },
+  seminars: {
+    image: "/service-seminars.png", imageAlt: "محاضر يقدم ندوة لطلاب وافدين",
+    label: "وعي يواكب الأحداث", heading: "ندوات ومحاضرات",
+    paragraphs: ["تعقد الجمعية الندوات والمحاضرات حول أبرز القضايا المصيرية في الساحة الإسلامية بشكل دائم يواكب الأحداث على الساحتين الإسلامية والدولية."],
+  },
+  camps: {
+    image: "/service-camps.png", imageAlt: "طلاب وافدون يشاركون في مخيم طلابي",
+    label: "تعلم وتجربة ومعايشة", heading: "مخيمات ومعسكرات",
+    paragraphs: ["أقامت الجمعية العديد من المخيمات الطلابية بأنواعها المختلفة في عدد من المدن المصرية لتحقيق أهداف تربوية وتثقيفية متعددة، بالإضافة إلى إطلاع الطلاب على مظاهر النهضة الحضارية في مقر إقامة المخيم."],
+    points: ["أهداف تربوية", "برامج تثقيفية", "أنشطة جماعية", "التعرف إلى المدن المصرية"],
+  },
+  iftar: {
+    image: "/service-iftar.png", imageAlt: "مائدة إفطار صائم للطلاب الوافدين والرجال المحتاجين",
+    label: "تكافل في شهر الخير", heading: "إفطار الصائم",
+    paragraphs: ["تقوم الجمعية بتجميع الآلاف من الطلاب الوافدين الفقراء على موائد الإفطار في شهر رمضان المبارك من كل عام، ضمن برنامج ثقافي حافل بالمحاضرات واللقاءات التثقيفية، فضلًا عن توزيع الآلاف من الشنط الرمضانية على الأسر الفقيرة منهم."],
+    points: ["موائد إفطار للطلاب الوافدين", "محاضرات ولقاءات تثقيفية", "توزيع الشنط الرمضانية"],
+  },
+  qurbani: {
+    image: "/service-qurbani.png", imageAlt: "متطوعون يوزعون لحوم الأضاحي على الطلاب والمحتاجين",
+    label: "مشروع موسمي للتكافل", heading: "مشروع الأضاحي",
+    paragraphs: ["تقوم الجمعية سنويًا بقبول وذبح الأضاحي وتوزيع لحومها على الطلاب الوافدين والفقراء والمحتاجين، سدًا لحاجتهم."],
+    points: ["استقبال الأضاحي", "تنظيم الذبح والتجهيز", "التوزيع على الطلاب والمحتاجين"],
+  },
+};
+
+const servicePageImages: Partial<Record<ServicePageId, { src: string; alt: string }>> = {
+  institutes: { src: "/page-institutes-guide.png", alt: "طلاب وافدون أمام أحد المعاهد التعليمية" },
+  universityAdmission: { src: "/page-university-admission.png", alt: "طلاب وافدون يستكملون إجراءات القبول الجامعي" },
+  femaleStudents: { src: "/page-female-student-services.png", alt: "مكتب خدمات الطالبات الوافدات بالجامعة" },
+  postgraduate: { src: "/page-postgraduate.png", alt: "باحثون وافدون يناقشون رسالة دراسات عليا" },
+  results: { src: "/page-university-results.png", alt: "طلاب وافدون يتابعون النتائج والشهادات" },
+  forms: { src: "/page-forms-applications.png", alt: "طلاب يستكملون النماذج والطلبات" },
+  embassies: { src: "/page-embassies-guide.png", alt: "طلاب وافدون يبحثون عن مقار السفارات" },
+  passportOffices: { src: "/page-passport-offices.png", alt: "طلاب وافدون داخل مكتب لخدمات الجوازات" },
+  publicLibrary: { src: "/page-public-library.png", alt: "طلاب وافدون يقرؤون في المكتبة العامة" },
+  courses: { src: "/page-specialized-courses.png", alt: "طلاب وافدون في دورة متخصصة" },
+};
+
 export function ServicePageContent({ page }: { page: ServicePageId }) {
   const data = pages[page];
 
@@ -242,6 +340,10 @@ export function ServicePageContent({ page }: { page: ServicePageId }) {
           </header>
           {data.notice && <aside className={styles.notice}><b aria-hidden="true">!</b><p>{data.notice}</p></aside>}
 
+          {servicePageImages[page] && !["universityAdmission", "femaleStudents", "courses", "postgraduate", "publicLibrary"].includes(page) && <figure className={styles.pageBanner}>
+            <Image src={servicePageImages[page]!.src} alt={servicePageImages[page]!.alt} fill sizes="(max-width: 1050px) 92vw, 58vw" priority />
+          </figure>}
+
           {page === "institutes" && <div className={styles.directory}>
             <div className={styles.directoryHeader}><span>المعهد</span><span>التليفون</span><span>العنوان</span><span>الخريطة</span></div>
             {institutesDirectory.map((item, index) => <article className={styles.directoryRow} key={`${item.institute}-${item.address}`}>
@@ -253,7 +355,7 @@ export function ServicePageContent({ page }: { page: ServicePageId }) {
           </div>}
 
           {page === "universityAdmission" && <div className={styles.admissionContent}>
-            <figure><Image src="/students-hero-boys.png" alt="طلاب وافدون داخل الجامعة" fill sizes="(max-width: 1050px) 92vw, 58vw" priority /></figure>
+            <figure><Image src="/page-university-admission.png" alt="طلاب وافدون يستكملون إجراءات القبول الجامعي" fill sizes="(max-width: 1050px) 92vw, 58vw" priority /></figure>
             <section className={styles.conditions}>
               <span>دليل القبول</span>
               <h2>شروط قبول الطلاب الوافدين</h2>
@@ -266,7 +368,62 @@ export function ServicePageContent({ page }: { page: ServicePageId }) {
             </section>
           </div>}
 
-          {page !== "institutes" && page !== "universityAdmission" && <div className={styles.cards}>
+          {page === "femaleStudents" && <div className={styles.femaleStudentsContent}>
+            <figure><Image src="/page-female-student-services.png" alt="مكتب خدمات الطالبات الوافدات بالجامعة" fill sizes="(max-width: 1050px) 92vw, 58vw" priority /></figure>
+            <section>
+              <header><span>خدمات تعليمية وإدارية</span><h2>الأعمال التي يقوم بها قسم الوافدات بالجامعة</h2></header>
+              <ol>{femaleStudentDepartmentTasks.map((task, index) => <li key={task}><b>{String(index + 1).padStart(2, "0")}</b><p>{task}</p></li>)}</ol>
+            </section>
+          </div>}
+
+          {page === "postgraduate" && <section className={styles.postgraduateContent}>
+            <figure><Image src="/page-postgraduate.png" alt="باحثون وافدون يناقشون رسالة دراسات عليا" fill sizes="(max-width:760px) 90vw, 30vw" priority /></figure>
+            <div><span>الماجستير والدكتوراه</span><h2>التقدم للدراسات العليا</h2><p>خاص بالطلاب الحاصلين على شهادة البكالوريوس أو الليسانس ويرغبون في الحصول على الماجستير أو الدكتوراه.</p><a href="/contact">استفسر عن التقديم <b aria-hidden="true">←</b></a></div>
+          </section>}
+
+          {page === "publicLibrary" && <div className={styles.libraryContent}>
+            <figure className={styles.pageBanner}><Image src="/page-public-library.png" alt="طلاب وافدون يقرؤون في المكتبة العامة" fill sizes="(max-width: 1050px) 92vw, 58vw" priority /></figure>
+            <section className={styles.libraryIntro}>
+              <span>ببليوجرافيا المكتبة العامة بالجمعية</span>
+              <h2>ابحث عن ما تريد من الكتب واذهب واستمتع بالقراءة في جو هادئ ومناسب</h2>
+              <div><strong>2650</strong><p>كتابًا تم إدخال بياناتها، وجارٍ إدخال باقي الكتب.</p></div>
+            </section>
+            <section className={styles.libraryMain}>
+              <div><span>المعرفة بين يدي طلاب العلم</span><h2>مكتبة الجمعية</h2><p>تشجيعًا للبحث العلمي، واكتمالًا للمنظومة التربوية والتعليمية من خلال توفير الكتاب بين يدي طلاب العلم، تم بفضل الله تعالى إنشاء مكتبة عامة على مساحة <strong>450 م²</strong> لتضم أكثر من <strong>4000 عنوان كتاب</strong> كبنية أساسية، بالإضافة إلى قسم البحث الإلكتروني والتصوير.</p></div>
+              <aside><b>4000+</b><span>عنوان كتاب</span><b>450 م²</b><span>مساحة المكتبة</span></aside>
+            </section>
+            <div className={styles.digitalLibraries}>
+              <article><span>01</span><h2>المكتبة الإلكترونية</h2><p>مكتبة متكاملة للبحوث العربية، تضم أكثر من 30 ألف بحث ورسالة علمية.</p><strong>30,000+</strong></article>
+              <article><span>02</span><h2>المكتبة الشاملة</h2><p>بوابة معرفية للبحث في الكتب والمراجع والاستفادة من المصادر الإلكترونية.</p><a href="/contact">استفسر عن الاستخدام <b aria-hidden="true">←</b></a></article>
+            </div>
+          </div>}
+
+          {page === "courses" && <div className={styles.coursesContent}>
+            <figure><Image src="/page-specialized-courses.png" alt="طلاب في إحدى الدورات المتخصصة" fill sizes="(max-width: 1050px) 92vw, 58vw" priority /></figure>
+            <section className={styles.coursesIntro}><span>تعلم وتأهيل</span><h2>مركز الدورات المتخصصة</h2><p>قامت الجمعية بإنشاء مركز الدورات المتخصصة، ومن ضمنها دورات تعليم اللغة العربية للناطقين بغيرها.</p><p>كما تعقد الجمعية على فترات مختلفة دورات علمية وشرعية وإدارية وتأهيلية وتخصصية لرفع مستوى الطلاب وتأهيلهم لما يفيد مجتمعاتهم.</p></section>
+            <section className={styles.courseAnnouncement}>
+              <header><span>إعلان الدورات</span><h2>دورات اللغة العربية</h2></header>
+              <div className={styles.courseBooks}><span>شرح كتاب العربية بين يديك</span><span>كتاب البلاغة الواضحة</span><span>كتاب قطر الندى</span></div>
+              <div className={styles.courseSchedule}><div><small>مدة الدورة</small><strong>شهران</strong></div><div><small>أيام الدراسة</small><strong>من السبت إلى الأربعاء</strong></div><div><small>الفترة الأولى</small><strong dir="rtl">4 مساءً — 6 مساءً</strong></div><div><small>الفترة الثانية</small><strong dir="rtl">6 مساءً — 8 مساءً</strong></div></div>
+              <a href="/forms-and-applications">تحميل استمارة التقدم <b aria-hidden="true">↓</b></a>
+            </section>
+          </div>}
+
+          {page in featuredServices && (() => {
+            const service = featuredServices[page as FeaturedServiceId];
+            return <div className={styles.featuredService}>
+              <figure><Image src={service.image} alt={service.imageAlt} fill sizes="(max-width: 1050px) 92vw, 58vw" priority /></figure>
+              <section className={styles.featuredBody}>
+                <span>{service.label}</span><h2>{service.heading}</h2>
+                {service.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                {service.points && <ul>{service.points.map((point, index) => <li key={point}><b>{String(index + 1).padStart(2, "0")}</b><span>{point}</span></li>)}</ul>}
+                {service.callout && <aside><small>{service.callout.label}</small><strong>{service.callout.value}</strong></aside>}
+                {service.download && <a href={service.download.href} target="_blank" rel="noreferrer" download>{service.download.label}<b aria-hidden="true">↓</b></a>}
+              </section>
+            </div>;
+          })()}
+
+          {page !== "institutes" && page !== "universityAdmission" && page !== "femaleStudents" && page !== "postgraduate" && page !== "publicLibrary" && page !== "courses" && !(page in featuredServices) && <div className={styles.cards}>
             {data.items.map((item, index) => (
               <section key={item.title}>
                 <div><span>{item.tag}</span><b>{String(index + 1).padStart(2, "0")}</b></div>

@@ -18,7 +18,7 @@ const sectionBySlug: Record<string, SectionConfig> = {
   activities: { contentId: "activities", title: "أنشطة الجمعية" },
   articles: { contentId: "articles", title: "مقالات وإبداعات" },
   videos: { contentId: "videos", title: "الفيديوهات" },
-  library: { contentId: "library", title: "المكتبة العامة" },
+  library: { serviceId: "publicLibrary", title: "المكتبة العامة" },
   "learn-arabic": { contentId: "arabic", title: "تعلم العربية" },
   "about-association": { sidebarId: "about", title: "نبذة عن الجمعية" },
   "association-reports": { sidebarId: "reports", title: "تقارير الجمعية" },

@@ -19,6 +19,17 @@ const pageInfo: Record<SidebarPageId, { eyebrow: string; title: string; descript
   join: { eyebrow: "كن جزءًا من مجتمعنا", title: "التحق بالجمعية", description: "خطوات واضحة والمستندات المطلوبة للانضمام والاستفادة من خدمات الجمعية." },
 };
 
+const pageImages: Record<SidebarPageId, { src: string; alt: string }> = {
+  about: { src: "/page-association-about.png", alt: "فريق الجمعية يستقبل الطلاب الوافدين" },
+  reports: { src: "/page-association-reports.png", alt: "فريق الجمعية يراجع التقارير السنوية" },
+  gallery: { src: "/page-photo-gallery.png", alt: "توثيق إحدى فعاليات الطلاب الوافدين" },
+  arabicLibrary: { src: "/page-arabic-library.png", alt: "طلاب وافدون يدرسون كتب اللغة العربية" },
+  texts: { src: "/page-texts-poems.png", alt: "طلاب يدرسون المتون والمنظومات العربية" },
+  audio: { src: "/page-audio-lessons.png", alt: "طالب وافد يتعلم العربية من خلال درس صوتي" },
+  apps: { src: "/page-android-apps.png", alt: "طالب يستخدم تطبيقات تعليمية على الهاتف" },
+  join: { src: "/page-join-association.png", alt: "طالب وافد يقدم طلب الالتحاق بالجمعية" },
+};
+
 const reports = [2019, 2018, 2017, 2016];
 const books = [
   ["العربية بين يديك", "مؤسسة العربية للجميع"],
@@ -68,6 +79,7 @@ export function SidebarPageContent({ page }: { page: SidebarPageId }) {
         <PersistentSidebar />
         <article className={styles.contentPanel}>
           <header className={styles.pageHeader}><span>{info.eyebrow}</span><h1>{info.title}</h1><p>{info.description}</p></header>
+          <figure className={styles.pageBanner}><Image src={pageImages[page].src} alt={pageImages[page].alt} fill sizes="(max-width:1050px) 92vw, 58vw" priority /></figure>
 
           {page === "about" && <div className={styles.officialAbout}>
             <section><span>جمعية أصدقاء الطالب الوافد</span><h2>بيانات الجمعية</h2><p>المشهرة برقم <strong>2004/5823</strong></p><p>عضو المجلس الإسلامي العالمي للدعوة والإغاثة.</p></section>
@@ -80,7 +92,7 @@ export function SidebarPageContent({ page }: { page: SidebarPageId }) {
 
           {page === "reports" && <div className={styles.reportGrid}>{reports.map((year, index) => <article key={year}><span>تقرير سنوي</span><strong>{year}</strong><p>ملخص لأنشطة الجمعية وبرامجها وخدماتها المقدمة للطلاب الوافدين خلال العام.</p><div><small>PDF</small><a href="#contact">استعرض التقرير ←</a></div><b>0{index + 1}</b></article>)}</div>}
 
-          {page === "gallery" && <div className={styles.gallery}>{Array.from({ length: 8 }, (_, index) => <figure key={index}><Image src="/students-hero-boys.png" alt={`صورة من أنشطة الجمعية ${index + 1}`} fill sizes="(max-width:620px) 90vw, 28vw" /><figcaption><span>0{index + 1}</span><strong>{index % 2 ? "لقاءات الطلاب الوافدين" : "أنشطة أصدقاء الجمعية"}</strong></figcaption></figure>)}</div>}
+          {page === "gallery" && <div className={styles.gallery}>{Array.from({ length: 8 }, (_, index) => <figure key={index}><Image src="/page-photo-gallery.png" alt={`صورة من أنشطة الجمعية ${index + 1}`} fill sizes="(max-width:620px) 90vw, 28vw" /><figcaption><span>0{index + 1}</span><strong>{index % 2 ? "لقاءات الطلاب الوافدين" : "أنشطة أصدقاء الجمعية"}</strong></figcaption></figure>)}</div>}
 
           {page === "arabicLibrary" && <div className={styles.bookGrid}>{books.map(([title, author], index) => <article key={title}><div className={styles.book}><small>مكتبة تعلم العربية</small><strong>{title}</strong><span>{author}</span></div><div><b>0{index + 1}</b><a href="#contact">استعرض الكتاب ←</a></div></article>)}</div>}
 

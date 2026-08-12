@@ -11,8 +11,8 @@
 .decorativeLine { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--green); }
 .decorativeLine i { width: 55px; height: 1px; background: rgba(149,209,18,.55); }
 .quotes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
-.quotes blockquote { position: relative; min-height: 260px; margin: 0; padding: clamp(28px,4vw,45px); display: flex; align-items: flex-end; overflow: hidden; border: 1px solid var(--border); border-top: 0; }
-.quotes p { position: relative; margin: 0; color: #5e6971; font-size: 12px; font-weight: 650; line-height: 2.25; }
+.quotes blockquote { position: relative; min-height: 190px; margin: 0; padding: clamp(24px,3vw,34px); display: flex; align-items: flex-start; overflow: hidden; border: 1px solid var(--border); border-top: 0; }
+.quotes p { position: relative; margin: 0; color: #5e6971; font-size: 14px; font-weight: 650; line-height: 2.05; }
 .quotes blockquote:first-child { background: #fafbf8; }
 .bankCard { margin-top: 24px; padding: clamp(28px,4vw,46px); display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 25px 40px; align-items: center; color: white; background: linear-gradient(135deg,#084e7c,var(--teal)); border-bottom: 5px solid var(--green); }
 .bankCard span { color: var(--green); font-size: 9px; font-weight: 850; }
@@ -50,5 +50,5 @@
 .contactForm > button:disabled { cursor: wait; opacity: .6; }
 .formMessage { grid-column: 1 / -1; margin: 0; padding: 11px 13px; color: var(--teal); background: #edf4e2; font-size: 10px; line-height: 1.7; }
 @media(max-width:1050px){.layout{grid-template-columns:1fr}.contentPanel{order:1}}
-@media(max-width:760px){.quotes,.contactLayout{grid-template-columns:1fr}.bankCard{grid-template-columns:1fr}.accountNumber{justify-self:start}.contactForm{grid-template-columns:1fr}.contactForm label,.fullField{grid-column:1}.quotes blockquote{min-height:220px}}
+@media(max-width:760px){.quotes,.contactLayout{grid-template-columns:1fr}.bankCard{grid-template-columns:1fr}.accountNumber{justify-self:start}.contactForm{grid-template-columns:1fr}.contactForm label,.fullField{grid-column:1}.quotes blockquote{min-height:auto}}
 @media(max-width:560px){.shell{padding-top:30px;scroll-margin-top:125px}.contentPanel{padding:24px 18px}.bankCard{gap:20px}.accountNumber{width:100%}}
