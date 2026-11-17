@@ -126,6 +126,13 @@ export function ContentArchive({ section }: { section: ContentSectionId }) {
   const isVideo = section === "videos";
   const isLibrary = section === "library";
   const isArabic = section === "arabic";
+  const pageImages: Partial<Record<ContentSectionId, { src: string; alt: string }>> = {
+    news: { src: "/page-expat-news.png", alt: "أخبار الطلاب الوافدين" },
+    activities: { src: "/page-photo-gallery.png", alt: "أنشطة وفعاليات الطلاب الوافدين" },
+    articles: { src: "/page-texts-poems.png", alt: "مقالات وإبداعات طلابية" },
+    videos: { src: "/page-audio-lessons.png", alt: "مكتبة الفيديوهات والدروس المرئية" },
+    arabic: { src: "/page-arabic-library.png", alt: "طلاب وافدون يتعلمون اللغة العربية" },
+  };
 
   return (
     <section className={styles.shell} id="home-content">
@@ -137,10 +144,17 @@ export function ContentArchive({ section }: { section: ContentSectionId }) {
             <strong>{content.items.length.toLocaleString("ar-EG")} عناصر</strong>
           </header>
 
+          {pageImages[section] && <figure className={styles.pageBanner}>
+            <Image src={pageImages[section]!.src} alt={pageImages[section]!.alt} fill sizes="(max-width: 1050px) 92vw, 58vw" priority />
+          </figure>}
+
           <div className={`${styles.grid} ${isArabic ? styles.audioList : ""}`}>
             {content.items.map((item, index) => (
               <article className={`${styles.card} ${isVideo ? styles.videoCard : ""} ${isLibrary ? styles.bookCard : ""} ${isArabic ? styles.lessonCard : ""}`} key={`${item.title}-${index}`}>
-                {item.image && <div className={styles.image}><Image src={item.image} alt={item.title} fill sizes="(max-width: 620px) 88vw, (max-width: 1050px) 42vw, 24vw" />{isVideo && <span className={styles.play}>▶</span>}<small>{item.category}</small></div>}
+                {item.image && (isVideo ? <div className={styles.videoScreen}>
+                  <div className={styles.image}><Image src={item.image} alt={item.title} fill sizes="(max-width: 620px) 88vw, (max-width: 1050px) 42vw, 24vw" /><span className={styles.play}>▶</span><small>{item.category}</small></div>
+                  <span className={styles.screenStand} aria-hidden="true" />
+                </div> : <div className={styles.image}><Image src={item.image} alt={item.title} fill sizes="(max-width: 620px) 88vw, (max-width: 1050px) 42vw, 24vw" /><small>{item.category}</small></div>)}
                 {isLibrary && <div className={styles.bookCover}><small>مكتبة الجمعية</small><strong>{item.title}</strong><span>{item.category}</span></div>}
                 {isArabic && <div className={styles.lessonIcon}><span>▶</span><small>درس صوتي</small></div>}
                 <div className={styles.body}>
@@ -150,7 +164,6 @@ export function ContentArchive({ section }: { section: ContentSectionId }) {
                   <div className={styles.meta}><span>{item.meta}</span>{item.date && <time>{item.date}</time>}</div>
                   <a href={isVideo ? "https://www.youtube.com/@isfsegypt" : "#contact"} target={isVideo ? "_blank" : undefined} rel={isVideo ? "noreferrer" : undefined}>{content.action} <b>←</b></a>
                 </div>
-                {isVideo && <span className={styles.screenStand} aria-hidden="true" />}
               </article>
             ))}
           </div>

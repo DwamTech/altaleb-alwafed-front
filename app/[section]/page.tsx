@@ -10,6 +10,7 @@ import { NewsTicker } from "@/components/home/NewsTicker/NewsTicker";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Header } from "@/components/layout/Header/Header";
 import { ScrollToTop } from "@/components/ui/ScrollToTop/ScrollToTop";
+import { ScrollToContent } from "@/components/ui/ScrollToContent/ScrollToContent";
 
 type SectionConfig = { title: string; contentId?: ContentSectionId; sidebarId?: SidebarPageId; serviceId?: ServicePageId; specialId?: SpecialPageId; legalId?: LegalPageId };
 
@@ -82,6 +83,7 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
               : <ContentArchive section={current.contentId!} />}
       <Footer />
       <ScrollToTop />
+      <ScrollToContent />
     </main>
   );
 }

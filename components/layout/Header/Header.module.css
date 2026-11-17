@@ -1,4 +1,4 @@
-.headerStack {  z-index: 100; top: 0; width: 100%; box-shadow: 0 8px 24px rgba(5,56,96,.08); }
+.headerStack { position: sticky; z-index: 100; top: 0; width: 100%; box-shadow: 0 8px 24px rgba(5,56,96,.08); }
 .topBar { background: var(--teal); color: rgba(255,255,255,.78); font-size: 12px; }
 .topBarInner { min-height: 38px; display: flex; align-items: center; justify-content: space-between; }
 .quickLinks { display: flex; align-items: center; gap: 22px; }
